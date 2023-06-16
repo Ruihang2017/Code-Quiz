@@ -1,7 +1,3 @@
-import { questions } from './questions.js'
-
-console.log("This is a js script");
-
 let questionPage = document.getElementById("questionPage");
 let questionContent = questionPage.querySelector('.questionContent');
 
@@ -29,6 +25,7 @@ let readQuestion = (number) => {
                     const j = Math.floor(Math.random() * (i + 1));
                     [questionsCopy[i], questionsCopy[j]] = [questionsCopy[j], questionsCopy[i]];
                 }
+                console.log(questionsCopy.slice(0, number));
                 return questionsCopy.slice(0, number);
             }
         })
@@ -37,20 +34,6 @@ let readQuestion = (number) => {
         });
 
 }
-
-
-
-// // Create a copy of the original array
-// const numbersCopy = numbers.slice();
-
-// // Shuffle the array using the Fisher-Yates algorithm
-// for (let i = numbersCopy.length - 1; i > 0; i--) {
-//     const j = Math.floor(Math.random() * (i + 1));
-//     [numbersCopy[i], numbersCopy[j]] = [numbersCopy[j], numbersCopy[i]];
-// }
-
-// // Select the first 5 numbers from the shuffled array
-// const randomNumbers = numbersCopy.slice(0, 5);
 
 init();
 
