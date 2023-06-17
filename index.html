@@ -24,7 +24,7 @@
                 <button onclick="navigateToPage()">High
                     Score</button>
             </div>
-            <div style="background-color: darkgrey;"><button>Time</button></div>
+            <div id="timeBlock" style="background-color: darkgrey; display: none;"></div>
         </div>
 
     </header>
@@ -36,13 +36,13 @@
             <div id="questionPage" class="col-12 col-md-6 text-center"
                 style="background-color: rgb(183, 69, 69); display: none;">
                 <p class="questionContent">Here is the question</p>
-                <ul>
+                <ul class="questionList">
                     <!-- <li><button>Option A</button></li>
                     <li><button>Option B</button></li>
                     <li><button>Option C</button></li>
                     <li><button>Option D</button></li> -->
                 </ul>
-                <p class="questionResult">result</p>
+                <p class="questionResult" style="display: none;">result</p>
                 <button style="display: none;">Next</button>
             </div>
 
@@ -55,12 +55,13 @@
             <div id="resultPage" class="col-12 col-md-6 text-center"
                 style="background-color: rgb(183, 69, 69); display: none;">
                 <h1>All done!</h1>
-                <p>Your final score is 100.</p>
-                <div>
+                <p class="resultMessage">Your final score is 100.</p>
+                <form id="resultForm" method="POST">
                     <div>Enter initials:</div>
                     <input type="text" placeholder="first name, last name">
-                </div>
-                <button>Submit</button>
+                    <button>Submit</button>
+
+                </form>
             </div>
 
 
