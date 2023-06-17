@@ -64,6 +64,84 @@
                 "All of the above",
                 "All of the above methods are used to display data in some form using Javascript."
             ]
+        },
+        {
+            "question": "How can a datatype be declared to be a constant type?",
+            "choises": [
+                "const",
+                "var",
+                "let",
+                "constant"
+            ],
+            "answer": [
+                "const",
+                "The const keyword is used to declare a variable as a constant type in Javascript and tells the compiler that its value cannot be changed later in the program."
+            ]
+        },
+        {
+            "question": "When the switch statement matches the expression with the given labels, how is the comparison done?",
+            "choises": [
+                "Both the datatype and the result of the expression are compared.",
+                "Only the datatype of the expression is compared.",
+                "Only the valye of the expression is compared.",
+                "None of the above."
+            ],
+            "answer": [
+                "Both the datatype and the result of the expression are compared.",
+                "Switch performs an ‘===’ based comparison, i.e both the value of the expression and its datatype is compared."
+            ]
+        },
+        {
+            "question": "What is the use of the <noscript> tag in Javascript?",
+            "choises": [
+                "The contents are displayed by non-JS-based browsers.",
+                "Clears alll the cookies and cache.",
+                "Both A and B.",
+                "None of the above."
+            ],
+            "answer": [
+                "The contents are displayed by non-JS-based browsers.",
+                "The <noscript> tag is displayed by non-Javascript browsers only."
+            ]
+        },
+        {
+            "question": "When an operator’s value is NULL, the typeof returned by the unary operator is:",
+            "choises": [
+                "Boolean",
+                "Undefined",
+                "Object",
+                "Integer"
+            ],
+            "answer": [
+                "Object",
+                "Any NULL value of operator will always return typeof object."
+            ]
+        },
+        {
+            "question": "What does the Javascript “debugger” statement do?",
+            "choises": [
+                "It will debug all the errors in the program at runtime.",
+                "It acts as a breakpoint in a program.",
+                "It will debug error in the current statement if any.",
+                "All of the above"
+            ],
+            "answer": [
+                "It acts as a breakpoint in a program.",
+                "‘debugger’ statement is used to setup the breakup points at probable points of error in the code snippet, using the debugger window."
+            ]
+        },
+        {
+            "question": "What does the ‘toLocateString()’ method do in JS?",
+            "choises": [
+                "Returns a localised object representation.",
+                "Returns a parsed string.",
+                "Returns a localized string representation of an object.",
+                "None of the above."
+            ],
+            "answer": [
+                "Returns a localized string representation of an object.",
+                "The ‘toLocateString()’ method in JS returns a localized string representation of an object."
+            ]
         }
     ]
 }
