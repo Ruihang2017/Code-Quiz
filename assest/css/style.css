@@ -3,3 +3,9 @@ body {
     flex-direction: column;
     /* justify-content: center; */
 }
+
+/* 
+#questionPage,
+#resultPage {
+    display: none;
+} */
