@@ -1,3 +1,7 @@
+// define constants
+const quizzTime = 30;
+const numOfQuestions = 5;
+
 // question section
 let questionPage = document.getElementById("questionPage");
 let questionContent = questionPage.querySelector('.questionContent');
@@ -17,10 +21,7 @@ let resultForm = document.getElementById("resultForm");
 
 // others
 let timeBlock = document.getElementById("timeBlock");
-
-const quizzTime = 30;
 let time = 0;
-
 let quizz = {
     questions: [],
     questionIndex: 0,
@@ -28,6 +29,7 @@ let quizz = {
     name: "",
 };
 
+// add event listener
 startButton.addEventListener("click", () => {
     startQuizz();
 });
@@ -46,12 +48,13 @@ resultForm.addEventListener("submit", (event) => {
     routeToHighScore();
 })
 
-let routeToHighScore = () => {
-    // Navigate to another HTML page
-    window.location.href = "./assest/html/highScore.html";
 
+// Navigate to another HTML page
+let routeToHighScore = () => {
+    window.location.href = "./assest/html/highScore.html";
 }
 
+// add to the ranking
 let addTohighScore = () => {
     let input = resultForm.querySelector('input');
     if (input) {
@@ -68,6 +71,7 @@ let addTohighScore = () => {
     }
 }
 
+// set time
 let setTime = () => {
     time = quizzTime;
     // display the time block 
@@ -85,6 +89,7 @@ let setTime = () => {
     }, 1000);
 }
 
+// display the result
 let displayResult = () => {
     timeBlock.style.display = "none";
     questionPage.style.display = "none";
@@ -101,14 +106,35 @@ let checkResult = (event, question) => {
         button.disabled = true;
     });
     // console.log(buttons);
+    console.log("event.target.dataset.value: " + event.target.dataset.value);
+    console.log("question.answer[0]: " + question.answer[0]);
 
-    if (event.target.textContent === question.answer[0]) {
-        questionResult.style.color = "green";
+    if (event.target.dataset.value === question.answer[0]) {
+        // questionResult.style.color = "green";
+        if (!questionResult.classList.contains("alert-success")) {
+            questionResult.classList.add("alert-success");
+        }
+        if (questionResult.classList.contains("alert-danger")) {
+            questionResult.classList.remove("alert-danger");
+        }
+
+        // questionResult.classList.add("alert-success");
         questionResult.textContent = "Correct, " + question.answer[1];
+
+        // accumulate the score
         quizz.result += (100 / quizz.questions.length);
     } else {
-        questionResult.style.color = "red";
+        // questionResult.style.color = "red";
+        if (questionResult.classList.contains("alert-success")) {
+            questionResult.classList.remove("alert-success");
+        }
+        if (!questionResult.classList.contains("alert-danger")) {
+            questionResult.classList.add("alert-danger");
+        }
+
         questionResult.textContent = "Incorrect, " + question.answer[1];
+
+        // reduce the time due to the incorrec answer
         time -= 5;
         if (time < 0) {
             time = 0;
@@ -117,17 +143,18 @@ let checkResult = (event, question) => {
 
     // button for the next question, of the index reaches the end of the questions, the next button changes its text from Next to Finsh
     if (quizz.questionIndex === quizz.questions.length) {
-        questionNextButton.textContent = "Finsih";
+        questionNextButton.textContent = "Finish";
     }
     questionNextButton.style.display = "block";
 }
 
+// startQuiz
 let startQuizz = () => {
     // console.log(questions);
     quizz.questionIndex = 0;
     welcomePage.style.display = 'none';
     questionPage.style.display = 'block';
-    readQuestion(3).then(result => {
+    readQuestion(numOfQuestions).then(result => {
         quizz.questions = result;
         if (quizz.questionIndex >= 0 && quizz.questionIndex < quizz.questions.length) {
             renderOneQuestion(quizz.questions[quizz.questionIndex]);
@@ -142,27 +169,22 @@ let startQuizz = () => {
 let renderOneQuestion = (question) => {
     questionList.innerHTML = "";
     questionResult.style.display = "none";
-    questionContent.textContent = question.question;
+    questionContent.textContent = `${(quizz.questionIndex + 1)}. ${question.question}`;
+    let i = 65;
     question.choises.forEach(choise => {
         let li = document.createElement('li');
         let button = document.createElement('button');
-        button.style.display = "block"
-        button.textContent = choise;
+        button.classList.add("btn", "btn-secondary", "w-100", "text-start", "my-1");
+        button.type = "button";
+        button.textContent = `${String.fromCharCode(i)}. ${choise}`;
+        button.dataset.value = choise;
         button.addEventListener("click", (event) => {
             checkResult(event, question);
         })
         questionList.appendChild(li.appendChild(button));
+        i++;
     });
     quizz.questionIndex++;
-}
-
-
-if (questionContent) {
-    questionContent.textContent = "What is your name";
-}
-
-let init = () => {
-    // onLoad();
 }
 
 let onLoad = () => {
@@ -195,7 +217,3 @@ let readQuestion = (number) => {
     })
 
 }
-
-
-
-init();

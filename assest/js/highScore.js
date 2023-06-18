@@ -20,7 +20,7 @@ let onLoad = () => {
     if (highScore) {
         //sort the rank by score
         highScore.sort((a, b) => b.score - a.score);
-        highScoreList.innerHTML = highScore.map((item, index) => `<li>${index + 1}. ${item.name} - ${item.score}</li>`).join("");
+        highScoreList.innerHTML = highScore.map((item, index) => `<li>${index + 1}.   <h3>${item.score} -- ${item.name}<h3></li>`).join("");
     } else {
         console.log("Could not get localStorage file highScore")
     }

@@ -11,63 +11,81 @@
     <title>CODE QUIZ</title>
 
     <link rel="stylesheet" type="text/css" href="./assest/css/reset.css" />
+
+    <!-- Bootstrap CSS v5.3.0 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100;300&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="./assest/css/style.css" />
 </head>
 
 <body>
     <header>
-        <div style="height: 50px; display: flex;">
-            <div style="background-color: blue; flex: auto;">
-                <button onclick="navigateToPage()">High
+        <div style="height: 50px; display: flex; align-items: center;">
+            <div style="flex: auto;">
+                <button class="btn btn-outline-secondary" onclick="navigateToPage()">High
                     Score</button>
             </div>
-            <div id="timeBlock" style="background-color: darkgrey; display: none;"></div>
+            <h2 id="timeBlock" style=" display: none;">
+            </h2>
         </div>
 
     </header>
 
-    <div class="container">
-        <div class="row justify-content-center align-items-center g-2">
-            <aside class="col-12 col-md-3 text-center" style="background-color: aqua;">aside left</aside>
+    <main class="container">
+        <div class="row align-items-center g-2 text-start">
+            <aside class="col-12 col-md-3"></aside>
 
-            <div id="questionPage" class="col-12 col-md-6 text-center"
-                style="background-color: rgb(183, 69, 69); display: none;">
+            <div id="questionPage" class="col-12 col-md-6 " style="display: none;">
                 <p class="questionContent">Here is the question</p>
                 <ul class="questionList">
-                    <!-- <li><button>Option A</button></li>
-                    <li><button>Option B</button></li>
-                    <li><button>Option C</button></li>
-                    <li><button>Option D</button></li> -->
+                    <!-- <li><button class="btn btn-secondary">Option A</button></li> -->
+
                 </ul>
-                <p class="questionResult" style="display: none;">result</p>
-                <button style="display: none;">Next</button>
+                <p class="questionResult alert" style="display: none;">result</p>
+                <button class="btn btn-outline-secondary" style="display: none;">Next</button>
             </div>
 
-            <div id="welcomePage" class="col-12 col-md-6 text-center" style="background-color: rgb(183, 69, 69);">
-                <h1>Welcome to the Page</h1>
-                <p>This is a paragraph of introduction</p>
-                <button id="startButton">Start</button>
+            <div id="welcomePage" class="col-12 col-md-6">
+                <h1>Welcome to the JavaScript Online Quiz! </h1>
+                <p>Test your knowledge of JavaScript with this interactive online quiz. Whether you're a beginner or
+                    an
+                    experienced developer, this quiz will challenge your understanding of JavaScript concepts and
+                    help
+                    you improve your skills. </p>
+                <p>Instructions: </p>
+                <ul style="  list-style-type: disc;">
+                    <li>The quiz consists of multiple-choice questions. </li>
+                    <li>Read each question carefully and select the option that you think is correct.</li>
+                    <li>You will receive immediate feedback on your answer after each question.</li>
+                    <li>At the end of the quiz, you will see your final score and have the option to review your
+                        answers.</li>
+                    <li>Incorrect answer will reduce the time by 5 seconds.</li>
+                </ul>
+                <p>Are you ready to put your JavaScript knowledge to the test? Let's get started!</p>
+                <button class="btn btn-outline-secondary" id="startButton">Start</button>
             </div>
 
-            <div id="resultPage" class="col-12 col-md-6 text-center"
-                style="background-color: rgb(183, 69, 69); display: none;">
+            <div id="resultPage" class="col-12 col-md-6 text-center" style="display: none;">
                 <h1>All done!</h1>
                 <p class="resultMessage">Your final score is 100.</p>
                 <form id="resultForm" method="POST">
                     <div>Enter initials:</div>
-                    <input type="text" placeholder="first name, last name">
-                    <button>Submit</button>
+                    <input class="form-control my-3" type="text" placeholder="first name, last name">
+                    <button class="btn btn-outline-secondary">Submit</button>
 
                 </form>
             </div>
 
 
-            <aside class="col-12 col-md-3 text-center" style="background-color: aquamarine;">aside right</aside>
+            <aside class="col-12 col-md-3 text-center"></aside>
         </div>
-    </div>
+    </main>
 
 
     <!-- <script src="https://code.jquery.com/jquery-3.7.0.js"></script> -->

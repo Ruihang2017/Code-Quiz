@@ -4,6 +4,10 @@ body {
     /* justify-content: center; */
 }
 
+* {
+    font-family: 'Geologica', sans-serif;
+}
+
 /* 
 #questionPage,
 #resultPage {
