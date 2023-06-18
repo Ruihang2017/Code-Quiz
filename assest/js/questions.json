@@ -105,7 +105,7 @@
             ]
         },
         {
-            "question": "When an operator’s value is NULL, the typeof returned by the unary operator is:",
+            "question": "When an operator's value is NULL, the typeof returned by the unary operator is:",
             "choises": [
                 "Boolean",
                 "Undefined",
@@ -141,6 +141,58 @@
             "answer": [
                 "Returns a localized string representation of an object.",
                 "The ‘toLocateString()’ method in JS returns a localized string representation of an object."
+            ]
+        },
+        {
+            "question": "Which of the following are closures in Javascript?",
+            "choises": [
+                "Variables",
+                "Functions",
+                "Objects",
+                "All of the above."
+            ],
+            "answer": [
+                "All of the above.",
+                "Every time a function is created in JS, a closure is created. So, all closures are functions and functions have a scope chain that is associated with them."
+            ]
+        },
+        {
+            "question": "What keyword is used to declare an asynchronous function in Javascript?",
+            "choises": [
+                "async",
+                "await",
+                "setTimeout",
+                "None of the above."
+            ],
+            "answer": [
+                "async",
+                "The async keyword is used to declare an asynchronous function in Javascript."
+            ]
+        },
+        {
+            "question": "How to stop an interval timer in Javascript?",
+            "choises": [
+                "clearInterval",
+                "clearTimer",
+                "intervalOver",
+                "None of the above."
+            ],
+            "answer": [
+                "clearInterval",
+                "clearInterval is used to stop an interval timer in JS."
+            ]
+        },
+        {
+            "question": "Which object in Javascript doesn’t have a prototype?",
+            "choises": [
+                "Base Object",
+                "All objects have a prototype",
+                "None of the objects have a prototype",
+                "None of the above."
+            ],
+            "answer": [
+                "Base Object",
+                "Base objects are the only objects in Javascript that don’t have a prototype."
             ]
         }
     ]

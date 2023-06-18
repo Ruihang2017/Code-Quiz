@@ -1,6 +1,6 @@
 // define constants
-const quizzTime = 30;
-const numOfQuestions = 5;
+const quizzTime = 60;
+const numOfQuestions = 10; //max question number is 15
 
 // question section
 let questionPage = document.getElementById("questionPage");
@@ -82,7 +82,7 @@ let setTime = () => {
         time--;
         timeBlock.textContent = time + " s ";
 
-        if (time === 0) {
+        if (time <= 0) {
             clearInterval(timerInterval);
             displayResult();
         }
@@ -169,6 +169,8 @@ let startQuizz = () => {
 let renderOneQuestion = (question) => {
     questionList.innerHTML = "";
     questionResult.style.display = "none";
+    questionNextButton.style.display = "none";
+
     questionContent.textContent = `${(quizz.questionIndex + 1)}. ${question.question}`;
     let i = 65;
     question.choises.forEach(choise => {
@@ -187,14 +189,15 @@ let renderOneQuestion = (question) => {
     quizz.questionIndex++;
 }
 
-let onLoad = () => {
-    readQuestion(4).then(result => {
-        console.log(result)
-    }).catch(error => {
-        console.error('Error:', error);
-    });
-}
+// let onLoad = () => {
+//     readQuestion(4).then(result => {
+//         console.log(result)
+//     }).catch(error => {
+//         console.error('Error:', error);
+//     });
+// }
 
+// read questions from the json file
 let readQuestion = (number) => {
     return new Promise((resolve, reject) => {
         fetch("assest/js/questions.json")
