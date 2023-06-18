@@ -105,9 +105,6 @@ let checkResult = (event, question) => {
     buttons.forEach(button => {
         button.disabled = true;
     });
-    // console.log(buttons);
-    console.log("event.target.dataset.value: " + event.target.dataset.value);
-    console.log("question.answer[0]: " + question.answer[0]);
 
     if (event.target.dataset.value === question.answer[0]) {
         // questionResult.style.color = "green";
@@ -150,7 +147,6 @@ let checkResult = (event, question) => {
 
 // startQuiz
 let startQuizz = () => {
-    // console.log(questions);
     quizz.questionIndex = 0;
     welcomePage.style.display = 'none';
     questionPage.style.display = 'block';
@@ -188,14 +184,6 @@ let renderOneQuestion = (question) => {
     });
     quizz.questionIndex++;
 }
-
-// let onLoad = () => {
-//     readQuestion(4).then(result => {
-//         console.log(result)
-//     }).catch(error => {
-//         console.error('Error:', error);
-//     });
-// }
 
 // read questions from the json file
 let readQuestion = (number) => {

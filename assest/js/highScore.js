@@ -6,8 +6,6 @@ clearHighScore.addEventListener("click", (event) => {
     init()
 })
 
-
-
 let init = () => {
     onLoad();
 }
